@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-# 增广数据集，将原目录下的每张图片扩充至16张，是否左右翻转，是否裁剪再扩充至原来大小，是否高斯模糊,是否旋转90度
+# 增广数据集，将原目录下的每张图片扩充至指定数目，翻转，裁剪再扩充至原来大小，高斯模糊,旋转度
 import os
 from PIL import Image,  ImageFilter
 
@@ -18,6 +18,8 @@ def aug_img(raw_img, img_name, out_dir, img_num, suffix, rotate_angle):
     # flip
     out_imgs = os.listdir(out_dir)
     for out_img_name in out_imgs:
+        if len(os.listdir(out_dir)) >= img_num:
+            break
         out_img = Image.open(out_dir+out_img_name)
         image_1 = out_img.transpose(Image.FLIP_LEFT_RIGHT)
         image_1.save(out_dir + img_name + '_' + str(index) + suffix)
@@ -25,19 +27,23 @@ def aug_img(raw_img, img_name, out_dir, img_num, suffix, rotate_angle):
     # crop
     out_imgs = os.listdir(out_dir)
     for out_img_name in out_imgs:
+        if len(os.listdir(out_dir)) >= img_num:
+            break
         out_img = Image.open(out_dir+out_img_name)
         box = (0, 0, int(0.8 * width), int(0.8 * height))
         image_2 = out_img.crop(box)
         image_2 = image_2.resize((160, 160))
         image_2.save(out_dir + img_name + '_' + str(index) + suffix)
         index += 1
-    # # gaussian
-    # out_imgs = os.listdir(out_dir)
-    # for out_img_name in out_imgs:
-    #     out_img = Image.open(out_dir+out_img_name)
-    #     image_3 = out_img.filter(ImageFilter.GaussianBlur(radius=1.5))
-    #     image_3.save(out_dir + img_name + '_' + str(index) + suffix)
-    #     index += 1
+    # gaussian
+    out_imgs = os.listdir(out_dir)
+    for out_img_name in out_imgs:
+        if len(os.listdir(out_dir)) >= img_num:
+            break
+        out_img = Image.open(out_dir+out_img_name)
+        image_3 = out_img.filter(ImageFilter.GaussianBlur(radius=1.5))
+        image_3.save(out_dir + img_name + '_' + str(index) + suffix)
+        index += 1
     # rotate
     out_imgs = os.listdir(out_dir)
     for out_img_name in out_imgs:

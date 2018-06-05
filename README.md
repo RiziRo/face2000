@@ -12,7 +12,7 @@ train_accuracy learning_rate center_loss]其中Loss=cross_entropy+regularization
 2.如何测试:
 可以进行两种文件结构的测试,输出的格式为:[图片名,真实类别,top5的预测类别(第一个是top1的结果)]
 每个batch输出top1和top5准确率,最终输出总的平均准确率，测试集无需手动进行mtcnn人脸检测，程序内会自动检测
-2.1文件结构为test_imgs/(0/0_2.jpg~x/x_2.jpg),即两层目录.使用src/dir_test.py文件,
+2.1文件结构为test_imgs/(0/0_2.jpg - x/x_2.jpg),即两层目录.使用src/dir_test.py文件,
 在第52行的test_data_dir变量中设置测试文件目录,即test_data_dir=上面的test_imgs,
 从链接: https://pan.baidu.com/s/1yAvCun9pKXqwO1yxsHmw5Q 密码: a96f中下载20180604-162515-6-.4-.4-.002-50
 文件夹,包含了训练好的模型

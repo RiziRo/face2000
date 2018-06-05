@@ -131,7 +131,7 @@ if __name__ == '__main__':
     image_size = 160
     margin = 44
     gpu_memory_fraction = 0.8
-    model_name = '20180604-162515-6-.4-.4-.002-50'
+    model_name = '20180605-171230-6-.4-5e-4-.005-500'
     meta_file = '/home/ronglz/models/facenet/' + model_name + '/model-' + model_name + '.meta'
     ckpt_dir = '/home/ronglz/models/facenet/' + model_name
     test_img_list = list()

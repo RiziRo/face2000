@@ -499,7 +499,7 @@ def parse_arguments(argv):
         help='Directory where to write trained models and checkpoints.', default='~/models/facenet')
     parser.add_argument('--models_sub_dir_suffix', type=str,
                         help='suffix indicating pars. img_nums-kp_pro-wt_dc-lr-ep',
-                        default='-6-.4-.4-.002-50')
+                        default='-6-.4-5e-4-.005-500')
     parser.add_argument('--gpu_memory_fraction', type=float,
         help='Upper bound on the amount of GPU memory that will be used by the process.', default=0.8)
     parser.add_argument('--pretrained_model', type=str,
@@ -528,7 +528,7 @@ def parse_arguments(argv):
 
     # parameters for training process
     parser.add_argument('--max_nrof_epochs', type=int,
-        help='Number of epochs to run.', default=50)  # 1000 before
+        help='Number of epochs to run.', default=500)  # 1000 before
     parser.add_argument('--batch_size', type=int,
         help='Number of images to process in a batch.', default=100)
     parser.add_argument('--epoch_size', type=int,
@@ -536,7 +536,7 @@ def parse_arguments(argv):
     parser.add_argument('--keep_probability', type=float,
         help='Keep probability of dropout for the fully connected layer(s).', default=0.4)  # 1.0 before
     parser.add_argument('--weight_decay', type=float,
-        help='L2 weight regularization.', default=0.4)  # 0 before
+        help='L2 weight regularization.', default=5e-4)  # 0 before
     parser.add_argument('--center_loss_factor', type=float,
         help='Center loss factor.', default=1)  # 0 before
     parser.add_argument('--center_loss_alfa', type=float,
@@ -553,7 +553,7 @@ def parse_arguments(argv):
         help='Initial learning rate. If set to a negative value a learning rate ' +
         'schedule can be specified in the file "learning_rate_schedule.txt"', default=0.002)  # 0.1 before
     parser.add_argument('--learning_rate_decay_epochs', type=int,
-        help='Number of epochs between learning rate decay.', default=10)  # 100 before
+        help='Number of epochs between learning rate decay.', default=100)  # 100 before
     parser.add_argument('--learning_rate_decay_factor', type=float,
         help='Learning rate decay factor.', default=0.8)  # 1.0 before
     parser.add_argument('--moving_average_decay', type=float,

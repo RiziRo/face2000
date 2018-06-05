@@ -1,11 +1,11 @@
 1.如何训练:
 使用src/train_softmax.py文件,
 在第507行设置pre_trained的模型参数文件
-从链接: https://pan.baidu.com/s/1yAvCun9pKXqwO1yxsHmw5Q 密码: a96f中下载vggface文件夹,包含了要用到的模型
+从链接: https://pan.baidu.com/s/1jdM22vvZwCCPkiblkwY5Zg 密码: 7eyf中下载vggface文件夹,包含了要用到的模型
 在第510行设置默认使用的数据集，数据集预处理方式见3
 第520-560行设置训练过程的参数,如learning_rate,weight_decay,epoch,epoch_size,batch_size,
 keep_probability等
-一组推荐的参数是learning_rate=0.002,weight_decay=0.4,epoch=50,epoch_size=100,batch_size=100,
+一组推荐的参数是learning_rate=0.005,weight_decay=5e-4,epoch=500,epoch_size=100,batch_size=100,
 keep_probability=0.4
 训练时,每隔10次输出一个记录,格式为[Epoch信息 Time Loss cross_entropy regularization_loss
 train_accuracy learning_rate center_loss]其中Loss=cross_entropy+regularization_loss
@@ -14,7 +14,7 @@ train_accuracy learning_rate center_loss]其中Loss=cross_entropy+regularization
 每个batch输出top1和top5准确率,最终输出总的平均准确率，测试集无需手动进行mtcnn人脸检测，程序内会自动检测
 2.1文件结构为test_imgs/(0/0_2.jpg~x/x_2.jpg),即两层目录.使用src/dir_test.py文件,
 在第52行的test_data_dir变量中设置测试文件目录,即test_data_dir=上面的test_imgs,
-从链接: https://pan.baidu.com/s/1yAvCun9pKXqwO1yxsHmw5Q 密码: a96f中下载20180604-162515-6-.4-.4-.002-50
+从链接: https://pan.baidu.com/s/1jdM22vvZwCCPkiblkwY5Zg 密码: 7eyf中下载20180605-171230-6-.4-5e-4-.005-500
 文件夹,包含了训练好的模型
 在第60行的meta_file变量中设置.meta文件的位置
 在第61行的ckpt_dir变量中设置ckpt文件夹的位置,即.meta文件所在的文件夹

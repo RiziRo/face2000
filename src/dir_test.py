@@ -57,8 +57,8 @@ if __name__ == '__main__':
     # model_name = '20180604-162515-6-.4-.4-.002-50'
     # meta_file = '/home/ronglz/models/facenet/'+model_name+'/model-'+model_name+'.meta'
     # ckpt_dir = '/home/ronglz/models/facenet/'+model_name
-    meta_file = './20180604-162515-6-.4-.4-.002-50/model-20180604-162515-6-.4-.4-.002-50.meta'
-    ckpt_dir = './20180604-162515-6-.4-.4-.002-50/'
+    meta_file = './20180605-171230-6-.4-5e-4-.005-500/model-20180605-171230-6-.4-5e-4-.005-500.meta'
+    ckpt_dir = './20180605-171230-6-.4-5e-4-.005-500/'
     with tf.Session() as sess:
         saver = tf.train.import_meta_graph(meta_file)
         saver.restore(sess, tf.train.latest_checkpoint(ckpt_dir))
